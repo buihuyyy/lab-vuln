@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng ký</title>
+  <link rel="stylesheet" href="/public/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Đăng ký tài khoản</h1>
+    <form id="registerForm">
+      <div class="form-group">
+        <label for="username">Username *</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password *</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+      </div>
+      <button type="submit">Đăng ký</button>
+    </form>
+    <div id="message"></div>
+    <p>Đã có tài khoản? <a href="/login">Đăng nhập</a></p>
+  </div>
+
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msgEl = document.getElementById('message');
+      msgEl.textContent = '';
+
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+      const email = document.getElementById('email').value.trim();
+
+      try {
+        const res = await fetch('/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password, email }),
+        });
+        const data = await res.json();
+
+        if (res.ok) {
+          msgEl.className = 'success';
+          msgEl.textContent = data.message;
+          setTimeout(() => { window.location.href = '/login'; }, 1000);
+        } else {
+          msgEl.className = 'error';
+          msgEl.textContent = data.error;
+        }
+      } catch (err) {
+        msgEl.className = 'error';
+        msgEl.textContent = 'Lỗi kết nối server.';
+      }
+    });
+  </script>
+</body>
+</html>

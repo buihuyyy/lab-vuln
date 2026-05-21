@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập</title>
+  <link rel="stylesheet" href="/public/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Đăng nhập</h1>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit">Đăng nhập</button>
+    </form>
+    <div id="message"></div>
+    <p>Chưa có tài khoản? <a href="/register">Đăng ký</a></p>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msgEl = document.getElementById('message');
+      msgEl.textContent = '';
+
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+
+      try {
+        const res = await fetch('/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password }),
+        });
+        const data = await res.json();
+
+        if (res.ok) {
+          msgEl.className = 'success';
+          msgEl.textContent = data.message;
+          setTimeout(() => { window.location.href = '/profile'; }, 500);
+        } else {
+          msgEl.className = 'error';
+          msgEl.textContent = data.error;
+        }
+      } catch (err) {
+        msgEl.className = 'error';
+        msgEl.textContent = 'Lỗi kết nối server.';
+      }
+    });
+  </script>
+</body>
+</html>

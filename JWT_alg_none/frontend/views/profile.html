@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thông tin cá nhân</title>
+  <link rel="stylesheet" href="/public/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header-row">
+      <h1>Thông tin cá nhân</h1>
+      <div>
+        <a href="/flag"><button type="button">Lấy Flag</button></a>
+        <button id="logoutBtn" class="btn-logout">Đăng xuất</button>
+      </div>
+    </div>
+
+    <div class="avatar-section">
+      <img id="avatarPreview" src="" alt="Avatar" class="avatar-img">
+      <form id="avatarForm">
+        <input type="file" id="avatarInput" name="avatar" accept="image/jpeg,image/png,image/gif,image/webp">
+        <button type="submit">Upload Avatar</button>
+      </form>
+      <div id="avatarMessage"></div>
+    </div>
+
+    <hr>
+
+    <form id="profileForm">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" disabled>
+      </div>
+      <div class="form-group">
+        <label for="full_name">Họ tên</label>
+        <input type="text" id="full_name" name="full_name">
+      </div>
+      <div class="form-group">
+        <label for="age">Tuổi</label>
+        <input type="number" id="age" name="age" min="1" max="150">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+      </div>
+      <div class="form-group">
+        <label for="phone">Số điện thoại</label>
+        <input type="text" id="phone" name="phone">
+      </div>
+      <div class="form-group">
+        <label for="website">Website</label>
+        <input type="url" id="website" name="website" placeholder="https://...">
+      </div>
+      <button type="submit">Lưu thông tin</button>
+    </form>
+    <div id="profileMessage"></div>
+  </div>
+
+  <script>
+    async function loadProfile() {
+      try {
+        const res = await fetch('/profile', {
+          headers: { 'Accept': 'application/json' },
+        });
+
+        if (res.status === 401) {
+          window.location.href = '/login';
+          return;
+        }
+
+        const user = await res.json();
+
+        document.getElementById('username').value = user.username || '';
+        document.getElementById('full_name').value = user.full_name || '';
+        document.getElementById('age').value = user.age || '';
+        document.getElementById('email').value = user.email || '';
+        document.getElementById('phone').value = user.phone || '';
+        document.getElementById('website').value = user.website || '';
+
+        const avatarImg = document.getElementById('avatarPreview');
+        if (user.avatar) {
+          avatarImg.src = user.avatar;
+          avatarImg.style.display = 'block';
+        } else {
+          avatarImg.style.display = 'none';
+        }
+      } catch (err) {
+        console.error('Lỗi load profile:', err);
+      }
+    }
+
+    document.getElementById('profileForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msgEl = document.getElementById('profileMessage');
+      msgEl.textContent = '';
+
+      const body = {
+        full_name: document.getElementById('full_name').value.trim(),
+        age: document.getElementById('age').value ? parseInt(document.getElementById('age').value) : null,
+        email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        website: document.getElementById('website').value.trim(),
+      };
+
+      try {
+        const res = await fetch('/profile', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+        });
+
+        if (res.status === 401) {
+          window.location.href = '/login';
+          return;
+        }
+
+        const data = await res.json();
+        if (res.ok) {
+          msgEl.className = 'success';
+          msgEl.textContent = data.message;
+        } else {
+          msgEl.className = 'error';
+          msgEl.textContent = data.error;
+        }
+      } catch (err) {
+        msgEl.className = 'error';
+        msgEl.textContent = 'Lỗi kết nối server.';
+      }
+    });
+
+    document.getElementById('avatarForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msgEl = document.getElementById('avatarMessage');
+      msgEl.textContent = '';
+
+      const fileInput = document.getElementById('avatarInput');
+      if (!fileInput.files || fileInput.files.length === 0) {
+        msgEl.className = 'error';
+        msgEl.textContent = 'Chưa chọn file ảnh.';
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('avatar', fileInput.files[0]);
+
+      try {
+        const res = await fetch('/upload-avatar', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (res.status === 401) {
+          window.location.href = '/login';
+          return;
+        }
+
+        const data = await res.json();
+        if (res.ok) {
+          msgEl.className = 'success';
+          msgEl.textContent = data.message;
+          const avatarImg = document.getElementById('avatarPreview');
+          avatarImg.src = data.avatar + '?t=' + Date.now();
+          avatarImg.style.display = 'block';
+          fileInput.value = '';
+        } else {
+          msgEl.className = 'error';
+          msgEl.textContent = data.error;
+        }
+      } catch (err) {
+        msgEl.className = 'error';
+        msgEl.textContent = 'Lỗi kết nối server.';
+      }
+    });
+
+    document.getElementById('logoutBtn').addEventListener('click', async () => {
+      try {
+        await fetch('/logout', { method: 'POST' });
+        window.location.href = '/login';
+      } catch (err) {
+        console.error('Lỗi đăng xuất:', err);
+      }
+    });
+
+    loadProfile();
+  </script>
+</body>
+</html>
