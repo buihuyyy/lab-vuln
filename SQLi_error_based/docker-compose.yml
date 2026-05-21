@@ -1,0 +1,10 @@
+services:
+  web:
+    build: .
+    container_name: broken-product-debug
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - DEBUG=true
+    restart: unless-stopped
