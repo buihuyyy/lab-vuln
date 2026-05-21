@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Admin Console</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="card">
+    <h1>Admin Console</h1>
+    <p>Welcome back, <strong>{{username}}</strong>.</p>
+    <div class="flag">
+      <p>Here is your flag:</p>
+      <code>{{flag}}</code>
+    </div>
+    <form method="POST" action="/logout">
+      <button type="submit">Sign out</button>
+    </form>
+  </main>
+</body>
+</html>

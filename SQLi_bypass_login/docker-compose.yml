@@ -1,0 +1,9 @@
+services:
+  old-admin-panel:
+    build: .
+    container_name: old-admin-panel
+    ports:
+      - "3000:3000"
+    environment:
+      - FLAG=buiih{l3g4cy_l0gin_qu3ry_n3v3r_di3s}
+    restart: unless-stopped

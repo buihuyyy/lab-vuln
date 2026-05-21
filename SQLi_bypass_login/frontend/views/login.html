@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Old Admin Panel · Login</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="card">
+    <header>
+      <h1>Old Admin Panel</h1>
+    </header>
+
+    <form method="POST" action="/login" autocomplete="off">
+      <label>Username
+        <input type="text" name="username" required>
+      </label>
+      <label>Password
+        <input type="password" name="password" required>
+      </label>
+      <button type="submit">Sign in</button>
+      <p class="error">{{error}}</p>
+    </form>
+  </main>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="card">
+    <h1>Welcome, {{username}}</h1>
+    <p>You are signed in as <strong>{{role}}</strong>.</p>
+    <p class="muted">
+      Nothing interesting on this dashboard. The flag is only visible to
+      administrators.
+    </p>
+    <form method="POST" action="/logout">
+      <button type="submit">Sign out</button>
+    </form>
+  </main>
+</body>
+</html>
