@@ -3,4 +3,4 @@ Sau khi tải hãy cài đặt rồi bật CMD chạy "docker --version" nếu h
 Truy cập vào file lab đó, bật CMD của file lab đó lên hoặc là bật CMD lên cd <ten_file> sau đó chạy lệnh "docker compose up --build".
 Sau khi đợi set up thì hãy bật localhost theo cổng được xuất ra sau khi chạy : http://localhost:port.
 
-Làm các bài như bài blackbox. Nếu lab nào có sử dụng database thì hầu hết đều là sqlite.
+Làm các bài như bài blackbox. Nếu lab nào có sử dụng database thì hầu hết đều là sqlite. flag có dạng : buiih{....}
