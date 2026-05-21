@@ -1,0 +1,7 @@
+services:
+  tracking-portal:
+    build: .
+    container_name: tracking-portal
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
