@@ -1,0 +1,9 @@
+services:
+  book-finder:
+    build: .
+    container_name: sqli-union-book-finder
+    ports:
+      - "127.0.0.1:3000:3000"
+    restart: "no"
+    volumes:
+      - ./data:/app/data

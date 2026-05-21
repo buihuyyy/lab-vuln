@@ -1,0 +1,13 @@
+{
+  "name": "sqli-union-book-finder",
+  "version": "1.0.0",
+  "description": "Mini CTF lab: Union-based SQL Injection - Book Finder",
+  "main": "backend/app.js",
+  "scripts": {
+    "start": "node backend/app.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "express": "^4.19.2"
+  }
+}
