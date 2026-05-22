@@ -1,0 +1,7 @@
+services:
+  todo-archive:
+    build: .
+    container_name: todo-archive
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
