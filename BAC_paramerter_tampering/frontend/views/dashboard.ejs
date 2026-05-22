@@ -1,0 +1,20 @@
+<%- include('partials/head') %>
+  <h1>Dashboard</h1>
+  <p>Welcome back, <strong><%= user.username %></strong>. Browse available trainings from the <a href="/courses">Courses</a> page.</p>
+
+  <h2>My Registered Courses</h2>
+  <% if (registrations.length === 0) { %>
+    <p class="muted">You haven't registered for any courses yet.</p>
+  <% } else { %>
+    <ul class="list">
+      <% registrations.forEach(function(r){ %>
+        <li>
+          <strong><%= r.title %></strong>
+          <% if (r.required_role === 'admin') { %>
+            <span class="badge admin">admin-only</span>
+          <% } %>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+<%- include('partials/foot') %>

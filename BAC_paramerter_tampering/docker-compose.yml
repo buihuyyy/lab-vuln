@@ -1,0 +1,7 @@
+services:
+  bac-parameter-tampering:
+    build: .
+    container_name: bac-parameter-tampering
+    ports:
+      - "3006:3000"
+    restart: unless-stopped

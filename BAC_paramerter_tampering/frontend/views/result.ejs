@@ -1,0 +1,18 @@
+<%- include('partials/head') %>
+  <h1>Registration Result</h1>
+
+  <% if (success) { %>
+    <div class="alert success"><%= message %></div>
+  <% } else { %>
+    <div class="alert error"><%= message %></div>
+  <% } %>
+
+  <% if (flag) { %>
+    <div class="flag">
+      <h2>Flag captured!</h2>
+      <code><%= flag %></code>
+    </div>
+  <% } %>
+
+  <p><a href="/courses">Back to courses</a> &middot; <a href="/dashboard">Dashboard</a></p>
+<%- include('partials/foot') %>

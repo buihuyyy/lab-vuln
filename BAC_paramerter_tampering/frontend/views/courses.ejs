@@ -1,0 +1,31 @@
+<%- include('partials/head') %>
+  <h1>Available Courses</h1>
+  <p class="muted">Pick a course and click Register. Admin-only courses are reserved for staff.</p>
+
+  <div class="grid">
+    <% courses.forEach(function(c){ %>
+      <div class="card course">
+        <h3>
+          <%= c.title %>
+          <% if (c.required_role === 'admin') { %>
+            <span class="badge admin">admin-only</span>
+          <% } %>
+        </h3>
+        <p class="muted"><%= c.description %></p>
+
+        <% if (c.required_role === 'admin' && user.role !== 'admin') { %>
+          <button type="button" class="btn-disabled" disabled title="Restricted to administrators">
+            Restricted
+          </button>
+        <% } else { %>
+          <form method="POST" action="/courses/register">
+            <input type="hidden" name="courseId" value="<%= c.id %>" />
+
+            <input type="hidden" name="accessLevel" value="user" />
+            <button type="submit">Register</button>
+          </form>
+        <% } %>
+      </div>
+    <% }) %>
+  </div>
+<%- include('partials/foot') %>
