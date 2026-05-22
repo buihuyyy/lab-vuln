@@ -1,0 +1,14 @@
+{
+  "name": "coupon-checker-ctf",
+  "version": "1.0.0",
+  "description": "Mini CTF lab - Time-based Blind SQL Injection (local only)",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "seed": "node backend/seed.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "express": "^4.19.2"
+  }
+}

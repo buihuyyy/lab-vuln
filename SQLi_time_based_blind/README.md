@@ -1,0 +1,2 @@
+Bài này vì mình dùng sqlite nên không có hàm sleep sẵn như các loại database khác, nhưng mà mình có mô phỏng 1 hàm sleep là hàm sleep_ms() thời gian truyền vào được tính theo ms. 
+Sau khi có hàm sleep thì bài này có thể làm tương tự như dạng boolean nhưng đặc điểm nhận dạng thì khác, ta sẽ kiểm tra xem server có bị sleep trong khoảng thời gian mà ta truyền vào không để dò được từng ký tự của flag

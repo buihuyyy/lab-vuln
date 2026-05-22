@@ -1,0 +1,8 @@
+services:
+  coupon-checker:
+    build: .
+    container_name: sqli_time_based_blind
+    ports:
+      - "127.0.0.1:3000:3000"
+    restart: "no"
+    network_mode: bridge
