@@ -1,0 +1,11 @@
+<%- include('_header', { title: 'Ticket #' + ticket.id, user: user }) %>
+
+<h1>Ticket #<%= ticket.id %></h1>
+<div class="card">
+  <h2><%= ticket.title %></h2>
+  <p><strong>Owner:</strong> <%= ticket.owner %></p>
+  <p><%= ticket.body %></p>
+</div>
+<p><a href="/dashboard">&larr; Back to dashboard</a></p>
+
+<%- include('_footer') %>

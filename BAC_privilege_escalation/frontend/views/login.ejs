@@ -1,0 +1,14 @@
+<%- include('_header', { title: 'Login', user: user }) %>
+
+<h1>Login</h1>
+<% if (error) { %>
+  <div class="error"><%= error %></div>
+<% } %>
+<form method="POST" action="/login" class="card">
+  <label>Username <input type="text" name="username" required /></label>
+  <label>Password <input type="password" name="password" required /></label>
+  <button type="submit">Sign in</button>
+</form>
+<p class="hint">Demo accounts: <code>student / student123</code></p>
+
+<%- include('_footer') %>

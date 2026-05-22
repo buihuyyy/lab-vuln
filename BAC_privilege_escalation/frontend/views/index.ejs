@@ -1,0 +1,11 @@
+<%- include('_header', { title: 'Home', user: user }) %>
+
+<h1>Welcome to HelpDesk Support</h1>
+<p>Submit and track your IT support tickets.</p>
+<% if (!user) { %>
+  <p><a class="btn" href="/login">Login to continue</a></p>
+<% } else { %>
+  <p><a class="btn" href="/dashboard">Go to your dashboard</a></p>
+<% } %>
+
+<%- include('_footer') %>

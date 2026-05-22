@@ -1,0 +1,25 @@
+<%- include('_header', { title: 'Admin Panel', user: user }) %>
+
+<h1>Admin Panel</h1>
+<p>All tickets across the system.</p>
+
+<table class="tickets">
+  <thead><tr><th>ID</th><th>Owner</th><th>Title</th><th></th></tr></thead>
+  <tbody>
+    <% tickets.forEach(t => { %>
+      <tr>
+        <td>#<%= t.id %></td>
+        <td><%= t.owner %></td>
+        <td><%= t.title %></td>
+        <td><a href="/ticket/<%= t.id %>">view</a></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<h2>Tools</h2>
+<ul>
+  <li><a href="/admin/report">Export secret report</a></li>
+</ul>
+
+<%- include('_footer') %>

@@ -1,0 +1,7 @@
+services:
+  bac-privilege-escalation:
+    build: .
+    container_name: bac-privilege-escalation
+    ports:
+      - "3007:3000"
+    restart: unless-stopped

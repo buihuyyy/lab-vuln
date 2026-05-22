@@ -1,0 +1,23 @@
+<%- include('_header', { title: 'Dashboard', user: user }) %>
+
+<h1>Your Tickets</h1>
+<p>Logged in as <b><%= user.username %></b> — only your own tickets are listed.</p>
+
+<% if (tickets.length === 0) { %>
+  <p><em>No tickets found.</em></p>
+<% } else { %>
+  <table class="tickets">
+    <thead><tr><th>ID</th><th>Title</th><th></th></tr></thead>
+    <tbody>
+      <% tickets.forEach(t => { %>
+        <tr>
+          <td>#<%= t.id %></td>
+          <td><%= t.title %></td>
+          <td><a href="/ticket/<%= t.id %>">view</a></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<% } %>
+
+<%- include('_footer') %>

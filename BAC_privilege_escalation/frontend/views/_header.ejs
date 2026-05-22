@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title><%= typeof title !== 'undefined' ? title : 'HelpDesk' %></title>
+  <link rel="stylesheet" href="/style.css" />
+  <!-- TODO: remove debug links before deploy. internal admin panel still at /admin -->
+</head>
+<body>
+  <header>
+    <div class="brand"><a href="/">HelpDesk Support</a></div>
+    <nav>
+      <% if (user) { %>
+        <span>Hi, <b><%= user.username %></b> (<%= user.role %>)</span>
+        <a href="/dashboard">Dashboard</a>
+        <% if (user.role === 'admin') { %>
+          <a href="/admin">Admin</a>
+        <% } %>
+        <a href="/logout">Logout</a>
+      <% } else { %>
+        <a href="/login">Login</a>
+      <% } %>
+    </nav>
+  </header>
+  <main>

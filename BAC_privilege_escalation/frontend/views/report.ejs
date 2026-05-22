@@ -1,0 +1,13 @@
+<%- include('_header', { title: 'Secret Report', user: user }) %>
+
+<h1>Secret Report</h1>
+<p>Classified internal export. Do not share.</p>
+
+<div class="card flag">
+  <p><strong>FLAG:</strong></p>
+  <pre><%= flag %></pre>
+</div>
+
+<p>Generated for: <%= user.username %> (<%= user.role %>)</p>
+
+<%- include('_footer') %>
