@@ -1,0 +1,7 @@
+services:
+  bac-missing-ac:
+    build: .
+    container_name: bac-missing-ac
+    ports:
+      - "3005:3000"
+    restart: unless-stopped

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin - Pending Posts</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <nav>
+    <span>Admin: <strong><%= user.username %></strong></span>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/logout">Logout</a>
+  </nav>
+
+  <div class="container">
+    <h1>Pending posts</h1>
+    <table>
+      <thead>
+        <tr><th>ID</th><th>Author</th><th>Title</th><th>Action</th></tr>
+      </thead>
+      <tbody>
+        <% pending.forEach(p => { %>
+          <tr>
+            <td><%= p.id %></td>
+            <td><%= p.username %></td>
+            <td><%= p.title %></td>
+            <td>
+              <button onclick="approve(<%= p.id %>)">Approve</button>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    async function approve(id) {
+      const r = await fetch('/api/posts/' + id + '/approve', { method: 'POST' });
+      const data = await r.json();
+      alert(data.message || 'done');
+      location.reload();
+    }
+  </script>
+</body>
+</html>

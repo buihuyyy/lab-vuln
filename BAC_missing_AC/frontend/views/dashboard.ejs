@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard - NotesApp</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <nav>
+    <span>Hello, <strong><%= user.username %></strong> (<%= user.role %>)</span>
+    <a href="/logout">Logout</a>
+  </nav>
+
+  <div class="container">
+    <h1>My Posts</h1>
+
+    <% if (flag) { %>
+      <div class="flag">Flag: <code><%= flag %></code></div>
+    <% } %>
+
+    <!-- admin uses /api/posts/:id/approve -->
+
+    <h2>Create draft</h2>
+    <form method="POST" action="/posts/create">
+      <label>Title</label>
+      <input type="text" name="title" required />
+      <label>Content</label>
+      <textarea name="content" rows="3" required></textarea>
+      <button type="submit">Save draft</button>
+    </form>
+
+    <h2>Your posts</h2>
+    <table>
+      <thead>
+        <tr><th>ID</th><th>Title</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <% posts.forEach(p => { %>
+          <tr>
+            <td><%= p.id %></td>
+            <td><%= p.title %></td>
+            <td><span class="status status-<%= p.status %>"><%= p.status %></span></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
