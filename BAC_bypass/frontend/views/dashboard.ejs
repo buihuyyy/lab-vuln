@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <nav>
+    <span>Profile Manager</span>
+    <a href="/dashboard">Dashboard</a>
+    <% if (user.role === 'admin') { %><a href="/admin">Admin</a><% } %>
+    <a href="/logout">Logout</a>
+  </nav>
+  <div class="card">
+    <h1>Welcome, <%= user.username %></h1>
+    <p><b>User ID:</b> <%= user.id %></p>
+    <p><b>Role:</b> <span class="role"><%= user.role %></span></p>
+
+    <h3>Update your profile</h3>
+    <p class="muted">Role changes are restricted to administrators.</p>
+    <form>
+      <label>Display name <input value="<%= user.username %>" disabled></label>
+    </form>
+
+  </div>
+</body>
+</html>

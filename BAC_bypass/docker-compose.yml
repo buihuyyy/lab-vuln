@@ -1,0 +1,7 @@
+services:
+  bac-bypass:
+    build: .
+    container_name: bac-bypass
+    ports:
+      - "3003:3000"
+    restart: unless-stopped

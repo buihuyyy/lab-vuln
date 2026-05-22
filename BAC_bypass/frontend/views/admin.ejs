@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <nav>
+    <span>Profile Manager</span>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/admin">Admin</a>
+    <a href="/logout">Logout</a>
+  </nav>
+  <div class="card">
+    <h1>Admin Panel</h1>
+    <div class="flag">FLAG: <%= flag %></div>
+
+    <h3>Users</h3>
+    <table>
+      <tr><th>ID</th><th>Username</th><th>Role</th><th>Update Role</th></tr>
+      <% users.forEach(u => { %>
+      <tr>
+        <td><%= u.id %></td>
+        <td><%= u.username %></td>
+        <td><%= u.role %></td>
+        <td>
+          <form method="POST" action="/admin/users/<%= u.id %>/role">
+            <select name="role">
+              <option value="user" <%= u.role==='user'?'selected':'' %>>user</option>
+              <option value="admin" <%= u.role==='admin'?'selected':'' %>>admin</option>
+            </select>
+            <button type="submit">Save</button>
+          </form>
+        </td>
+      </tr>
+      <% }) %>
+    </table>
+  </div>
+</body>
+</html>

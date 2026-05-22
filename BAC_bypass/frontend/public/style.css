@@ -1,0 +1,20 @@
+* { box-sizing: border-box; }
+body { font-family: system-ui, sans-serif; background: #0f172a; color: #e2e8f0; margin: 0; }
+nav { background: #1e293b; padding: 12px 20px; display: flex; gap: 16px; align-items: center; }
+nav span { font-weight: bold; margin-right: auto; }
+nav a { color: #93c5fd; text-decoration: none; }
+.card { max-width: 760px; margin: 40px auto; background: #1e293b; padding: 28px; border-radius: 10px; }
+h1, h2 { margin-top: 0; }
+label { display: block; margin: 10px 0; }
+input, select { padding: 8px; background: #0f172a; color: #e2e8f0; border: 1px solid #334155; border-radius: 4px; width: 100%; }
+button { padding: 8px 16px; background: #3b82f6; color: white; border: 0; border-radius: 4px; cursor: pointer; }
+button:hover { background: #2563eb; }
+.err { background: #7f1d1d; padding: 10px; border-radius: 4px; }
+.muted { color: #94a3b8; font-size: 14px; }
+.role { background: #0f172a; padding: 2px 8px; border-radius: 4px; font-family: monospace; }
+.flag { background: #064e3b; color: #6ee7b7; padding: 12px; border-radius: 6px; font-family: monospace; font-size: 18px; margin: 16px 0; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { padding: 8px; border-bottom: 1px solid #334155; text-align: left; }
+form { display: flex; gap: 6px; }
+form input, form select { width: auto; }
+code { background: #0f172a; padding: 2px 6px; border-radius: 3px; }
