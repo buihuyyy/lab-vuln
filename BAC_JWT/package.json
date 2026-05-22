@@ -1,0 +1,15 @@
+{
+  "name": "bac-jwt-lab",
+  "version": "1.0.0",
+  "description": "Mini CTF lab: Broken Access Control via JWT role tampering",
+  "main": "backend/app.js",
+  "scripts": {
+    "start": "node backend/app.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.9",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2"
+  }
+}

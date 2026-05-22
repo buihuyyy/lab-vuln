@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard - BAC JWT Lab</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome, <%= user.username %></h1>
+    <p>Your role: <strong><%= user.role %></strong></p>
+
+    <ul class="nav">
+      <li><a href="/admin">Admin panel</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </div>
+</body>
+</html>

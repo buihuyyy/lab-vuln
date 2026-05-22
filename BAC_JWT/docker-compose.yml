@@ -1,0 +1,7 @@
+services:
+  bac-jwt:
+    build: .
+    container_name: bac-jwt
+    ports:
+      - "3002:3000"
+    restart: unless-stopped
