@@ -1,0 +1,14 @@
+<%- include('layout-header') %>
+<nav>
+  <a href="/dashboard">Dashboard</a>
+  <a href="/profile/edit">Edit Profile</a>
+  <a href="/admin">Admin</a>
+  <a href="/logout">Logout</a>
+</nav>
+<div class="card">
+  <h2>Welcome, <%= user.displayName || user.username %></h2>
+  <p><strong>Username:</strong> <%= user.username %></p>
+  <p><strong>Role:</strong> <span class="role <%= user.role === 'admin' ? 'admin' : '' %>"><%= user.role %></span></p>
+  <p><strong>Bio:</strong> <%= user.bio || '(empty)' %></p>
+</div>
+<%- include('layout-footer') %>

@@ -1,0 +1,21 @@
+<%- include('layout-header') %>
+<nav>
+  <a href="/dashboard">Dashboard</a>
+  <a href="/profile/edit">Edit Profile</a>
+  <a href="/admin">Admin</a>
+  <a href="/logout">Logout</a>
+</nav>
+<div class="card">
+  <h2>Edit Profile</h2>
+  <!-- profile update accepts flexible fields for future use -->
+  <form method="POST" action="/profile/edit">
+    <label>Display Name</label>
+    <input type="text" name="displayName" value="<%= user.displayName || '' %>" />
+
+    <label>Bio</label>
+    <textarea name="bio" rows="4"><%= user.bio || '' %></textarea>
+
+    <button type="submit">Save</button>
+  </form>
+</div>
+<%- include('layout-footer') %>

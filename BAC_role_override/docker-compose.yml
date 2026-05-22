@@ -1,0 +1,7 @@
+services:
+  bac-role-override:
+    build: .
+    container_name: bac-role-override
+    ports:
+      - "3008:3000"
+    restart: unless-stopped

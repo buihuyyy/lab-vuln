@@ -1,0 +1,14 @@
+<%- include('layout-header') %>
+<div class="card">
+  <h2>Login</h2>
+  <form method="POST" action="/login">
+    <label>Username</label>
+    <input type="text" name="username" required />
+    <label>Password</label>
+    <input type="password" name="password" required />
+    <button type="submit">Login</button>
+    <% if (error) { %><div class="error"><%= error %></div><% } %>
+  </form>
+  <p style="margin-top:18px;font-size:13px;color:#666;">Test account: <code>huy / huy123</code></p>
+</div>
+<%- include('layout-footer') %>

@@ -1,0 +1,14 @@
+<%- include('layout-header') %>
+<nav>
+  <a href="/dashboard">Dashboard</a>
+  <a href="/profile/edit">Edit Profile</a>
+  <a href="/admin">Admin</a>
+  <a href="/logout">Logout</a>
+</nav>
+<div class="card">
+  <h2>Admin Panel</h2>
+  <p>Welcome, administrator <%= user.username %>.</p>
+  <p>Here is your flag:</p>
+  <p class="flag"><%= flag %></p>
+</div>
+<%- include('layout-footer') %>

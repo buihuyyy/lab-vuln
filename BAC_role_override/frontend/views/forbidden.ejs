@@ -1,0 +1,13 @@
+<%- include('layout-header') %>
+<nav>
+  <a href="/dashboard">Dashboard</a>
+  <a href="/profile/edit">Edit Profile</a>
+  <a href="/admin">Admin</a>
+  <a href="/logout">Logout</a>
+</nav>
+<div class="card">
+  <h2>403 - Forbidden</h2>
+  <p>Hey <%= user.username %>, this area is for administrators only.</p>
+  <p>Your current role: <span class="role"><%= user.role %></span></p>
+</div>
+<%- include('layout-footer') %>
