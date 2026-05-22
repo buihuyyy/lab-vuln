@@ -1,0 +1,7 @@
+services:
+  bac-forced-browsing:
+    build: .
+    container_name: bac-forced-browsing
+    ports:
+      - "3004:3000"
+    restart: unless-stopped

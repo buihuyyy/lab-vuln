@@ -1,0 +1,14 @@
+<nav class="navbar">
+  <div class="brand">InternalPortal</div>
+  <ul class="nav-links">
+    <% if (user) { %>
+      <li><a href="/dashboard">Dashboard</a></li>
+      <li><a href="/docs/public">Public Docs</a></li>
+      <li class="spacer"></li>
+      <li class="user">Logged in as <b><%= user.username %></b></li>
+      <li><a href="/logout">Logout</a></li>
+    <% } else { %>
+      <li><a href="/login">Login</a></li>
+    <% } %>
+  </ul>
+</nav>

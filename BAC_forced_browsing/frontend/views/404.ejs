@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Not Found</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <%- include('partials/navbar') %>
+  <main class="container">
+    <h1>404 — Not Found</h1>
+    <p>No resource at <code><%= url %></code>.</p>
+    <% if (typeof hint !== 'undefined' && hint) { %>
+      <p><em><%= hint %></em></p>
+    <% } %>
+  </main>
+</body>
+</html>

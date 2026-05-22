@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard · InternalPortal</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <%- include('partials/navbar') %>
+  <main class="container">
+    <h1>Welcome, <%= user.username %></h1>
+    <p>This is the internal employee portal. Use the navigation above to access available resources.</p>
+
+    <div class="cards">
+      <a class="card link" href="/docs/public">
+        <h3>Public Documentation</h3>
+        <p>Onboarding guides, policies and general references.</p>
+      </a>
+      <div class="card">
+        <h3>Announcements</h3>
+        <p>No new announcements.</p>
+      </div>
+    </div>
+
+    <!-- TODO: old internal docs moved to /internal/... -->
+  </main>
+</body>
+</html>
