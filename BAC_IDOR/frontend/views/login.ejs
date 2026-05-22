@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login - Invoice Portal</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Invoice Portal</h1>
+    <h2>Sign in</h2>
+
+    <% if (error) { %>
+      <p class="error"><%= error %></p>
+      <!--
+        Alice often uses passwords that contain her name followed by 123
+      -->
+    <% } %>
+
+    <form method="POST" action="/login">
+      <label>Username
+        <input type="text" name="username" autocomplete="off" required />
+      </label>
+      <label>Password
+        <input type="password" name="password" required />
+      </label>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</body>
+</html>

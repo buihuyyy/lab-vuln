@@ -1,0 +1,15 @@
+{
+  "name": "bac-idor-lab",
+  "version": "1.0.0",
+  "description": "Mini CTF lab for Broken Access Control / Horizontal IDOR",
+  "main": "backend/app.js",
+  "scripts": {
+    "start": "node backend/app.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "express-session": "^1.18.0"
+  }
+}

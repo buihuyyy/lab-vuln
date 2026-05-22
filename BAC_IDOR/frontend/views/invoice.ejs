@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Invoice #<%= invoice.id %></title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <span>Logged in as <strong><%= username %></strong></span>
+      <a href="/logout">Logout</a>
+    </header>
+
+    <p><a href="/dashboard">&larr; Back to dashboard</a></p>
+
+    <h1>Invoice #<%= invoice.id %></h1>
+    <div class="invoice-card">
+      <p><strong>Title:</strong> <%= invoice.title %></p>
+      <p><strong>Amount:</strong> <%= invoice.amount %></p>
+      <p><strong>Details:</strong></p>
+      <pre><%= invoice.content %></pre>
+    </div>
+  </div>
+</body>
+</html>

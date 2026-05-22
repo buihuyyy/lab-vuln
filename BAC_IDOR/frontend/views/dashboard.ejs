@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard - Invoice Portal</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <span>Logged in as <strong><%= username %></strong></span>
+      <a href="/logout">Logout</a>
+    </header>
+
+    <h1>Your Invoices</h1>
+
+    <% if (invoices.length === 0) { %>
+      <p>You have no invoices.</p>
+    <% } else { %>
+      <table>
+        <thead>
+          <tr><th>#</th><th>Title</th><th>Amount</th><th></th></tr>
+        </thead>
+        <tbody>
+          <% invoices.forEach(function(inv) { %>
+            <tr>
+              <td><%= inv.id %></td>
+              <td><%= inv.title %></td>
+              <td><%= inv.amount %></td>
+              <td><a href="/invoice/<%= inv.id %>">View</a></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } %>
+  </div>
+</body>
+</html>

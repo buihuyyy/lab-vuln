@@ -1,0 +1,7 @@
+services:
+  bac-idor:
+    build: .
+    container_name: bac-idor
+    ports:
+      - "3001:3000"
+    restart: unless-stopped
