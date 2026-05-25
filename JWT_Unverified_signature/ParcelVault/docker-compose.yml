@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  parcelvault:
+    build: ./backend
+    container_name: parcelvault
+    ports:
+      - "3001:3000"
+    environment:
+      - PORT=3000
+      - JWT_SECRET=${JWT_SECRET:-pv_super_secret_do_not_share_2026}
+      - FLAG=${FLAG:-buiih{decoded_but_never_verified}}
+    volumes:
+      - ./frontend:/app/frontend:ro
+    restart: unless-stopped

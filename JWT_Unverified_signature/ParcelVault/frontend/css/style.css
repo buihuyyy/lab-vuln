@@ -1,0 +1,67 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, Segoe UI, Roboto, sans-serif;
+  background: #f4f6fa;
+  color: #1f2937;
+}
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: #1e293b;
+  color: #fff;
+}
+.topbar a { color: #fff; text-decoration: none; margin-left: 16px; }
+.brand { font-weight: 700; font-size: 1.2rem; }
+.brand a { color: #fff; text-decoration: none; }
+.hero {
+  max-width: 760px;
+  margin: 80px auto;
+  text-align: center;
+}
+.hero h1 { font-size: 2.4rem; margin-bottom: 12px; }
+.btn {
+  display: inline-block;
+  background: #2563eb;
+  color: #fff;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1rem;
+}
+.btn:hover { background: #1d4ed8; }
+.card-wrap { display: flex; justify-content: center; padding: 60px 16px; }
+.card {
+  background: #fff;
+  padding: 28px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.card label { display: flex; flex-direction: column; font-size: 0.9rem; gap: 6px; }
+.card input {
+  padding: 8px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.err { color: #b91c1c; min-height: 1.2em; margin: 0; font-size: 0.9rem; }
+.hint { color: #64748b; font-size: 0.85rem; margin: 0; text-align: center; }
+.hint code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 0.85rem; color: #1f2937; }
+.page { max-width: 960px; margin: 30px auto; padding: 0 20px; }
+table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #e2e8f0; font-size: 0.95rem; }
+th { background: #f1f5f9; }
+.archive { margin-top: 40px; background: #fff; padding: 16px 20px; border-radius: 8px; }
+.muted { color: #64748b; font-size: 0.9rem; }
+pre { background: #0f172a; color: #e2e8f0; padding: 14px; border-radius: 6px; overflow: auto; white-space: pre-wrap; }
+footer { text-align: center; padding: 30px; color: #64748b; font-size: 0.85rem; }
+.forbidden { max-width: 480px; margin: 80px auto; text-align: center; background: #fff; padding: 30px; border-radius: 10px; }

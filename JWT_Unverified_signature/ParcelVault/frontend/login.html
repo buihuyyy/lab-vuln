@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ParcelVault — Sign in</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><a href="/">ParcelVault</a></div>
+  </header>
+  <main class="card-wrap">
+    <form id="login-form" class="card">
+      <h2>Sign in</h2>
+      <label>Username<input name="username" type="text" autocomplete="username" required /></label>
+      <label>Password<input name="password" type="password" autocomplete="current-password" required /></label>
+      <button class="btn" type="submit">Sign in</button>
+      <p id="err" class="err"></p>
+      <p class="hint">Demo account: <code>huy / learner123</code></p>
+    </form>
+  </main>
+  <script src="/js/login.js"></script>
+</body>
+</html>

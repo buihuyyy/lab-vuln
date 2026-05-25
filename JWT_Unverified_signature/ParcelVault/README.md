@@ -1,0 +1,1 @@
+Tận dụng response
